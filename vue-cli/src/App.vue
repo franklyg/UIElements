@@ -3,9 +3,10 @@
     <!-- <app-animation>
       
     </app-animation> -->
-    <speeddial-menu>
-      <speeddial-menu-item><div>Hello</div></speeddial-menu-item>
-      <speeddial-menu-item><div>Test</div></speeddial-menu-item>
+    <speeddial-menu @clicked="onClickChild" :delay="35" >
+      <speeddial-menu-item>Hello</speeddial-menu-item>
+      <speeddial-menu-item>Test</speeddial-menu-item>
+      <speeddial-menu-item>More</speeddial-menu-item>
     </speeddial-menu>
     <breadcrumbs @clickStart="start">
       <breadcrumb-element :isActive="true" scope="props" header="Page Image" >Page Image</breadcrumb-element>
@@ -18,34 +19,34 @@
     <slideout-container :isActive="active">
 
       <div slot="title">
-          <div v-show="activePanel == 'Page Image'">Page<br/> Image</div>
-          <div v-show="activePanel == 'Page Name'">Page<br /> Name</div>
-          <div v-show="activePanel == 'Page Price'">Page<br /> Price</div>
-          <div v-show="activePanel == 'Redirect Link'">Redirect<br /> Link</div>
-          <div v-show="activePanel == 'Preview'">Preview</div>  
+	      <div v-show="activePanel == 'Page Image'">Page<br/> Image</div>
+	      <div v-show="activePanel == 'Page Name'">Page<br /> Name</div>
+	      <div v-show="activePanel == 'Page Price'">Page<br /> Price</div>
+	      <div v-show="activePanel == 'Redirect Link'">Redirect<br /> Link</div>
+	      <div v-show="activePanel == 'Preview'">Preview</div>  
       </div>
 
       <div slot="body">
-          <div v-show="activePanel == 'Page Image'">
-                <h1>Hello</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor lacinia vehicula. Pellentesque ullamcorper laoreet urna, vel mattis lacus ultricies sed. Praesent id metus pellentesque, pretium dui nec, pulvinar arcu. Praesent accumsan felis sapien, et facilisis turpis scelerisque vitae. Morbi nec vestibulum libero. Donec euismod vehicula lectus. Donec malesuada, libero quis hendrerit vestibulum, nisi augue eleifend magna, et dapibus risus metus nec velit. Donec elementum congue nisi in tempor. In at ligula placerat arcu tristique lacinia interdum at lorem. Fusce ipsum risus, venenatis vel sagittis id, fringilla ac tortor. Aliquam eleifend est purus, vestibulum interdum dui consequat ac. Quisque efficitur nibh quis nunc egestas, eu laoreet lacus tincidunt. In eget odio at quam sagittis bibendum. Sed sed elit sem. Donec tincidunt et ipsum quis mattis.</p>
-          </div>
-          <div v-show="activePanel == 'Page Name'">
-                <h1>Jeez</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor lacinia vehicula. Pellentesque ullamcorper laoreet urna, vel mattis lacus ultricies sed. Praesent id metus pellentesque, pretium dui nec, pulvinar arcu. Praesent accumsan felis sapien, et facilisis turpis scelerisque vitae. Morbi nec vestibulum libero. Donec euismod vehicula lectus. Donec malesuada, libero quis hendrerit vestibulum, nisi augue eleifend magna, et dapibus risus metus nec velit. Donec elementum congue nisi in tempor. In at ligula placerat arcu tristique lacinia interdum at lorem. Fusce ipsum risus, venenatis vel sagittis id, fringilla ac tortor. Aliquam eleifend est purus, vestibulum interdum dui consequat ac. Quisque efficitur nibh quis nunc egestas, eu laoreet lacus tincidunt. In eget odio at quam sagittis bibendum. Sed sed elit sem. Donec tincidunt et ipsum quis mattis.</p>
-          </div>
-          <div v-show="activePanel == 'Page Price'">
-                <h1>Hello</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor lacinia vehicula. Pellentesque ullamcorper laoreet urna, vel mattis lacus ultricies sed. Praesent id metus pellentesque, pretium dui nec, pulvinar arcu. Praesent accumsan felis sapien, et facilisis turpis scelerisque vitae. Morbi nec vestibulum libero. Donec euismod vehicula lectus. Donec malesuada, libero quis hendrerit vestibulum, nisi augue eleifend magna, et dapibus risus metus nec velit. Donec elementum congue nisi in tempor. In at ligula placerat arcu tristique lacinia interdum at lorem. Fusce ipsum risus, venenatis vel sagittis id, fringilla ac tortor. Aliquam eleifend est purus, vestibulum interdum dui consequat ac. Quisque efficitur nibh quis nunc egestas, eu laoreet lacus tincidunt. In eget odio at quam sagittis bibendum. Sed sed elit sem. Donec tincidunt et ipsum quis mattis.</p>
-          </div>
-          <div v-show="activePanel == 'Redirect Link'">
-                <h1>Hello</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor lacinia vehicula. Pellentesque ullamcorper laoreet urna, vel mattis lacus ultricies sed. Praesent id metus pellentesque, pretium dui nec, pulvinar arcu. Praesent accumsan felis sapien, et facilisis turpis scelerisque vitae. Morbi nec vestibulum libero. Donec euismod vehicula lectus. Donec malesuada, libero quis hendrerit vestibulum, nisi augue eleifend magna, et dapibus risus metus nec velit. Donec elementum congue nisi in tempor. In at ligula placerat arcu tristique lacinia interdum at lorem. Fusce ipsum risus, venenatis vel sagittis id, fringilla ac tortor. Aliquam eleifend est purus, vestibulum interdum dui consequat ac. Quisque efficitur nibh quis nunc egestas, eu laoreet lacus tincidunt. In eget odio at quam sagittis bibendum. Sed sed elit sem. Donec tincidunt et ipsum quis mattis.</p>
-          </div>
-          <div v-show="activePanel == 'Preview'">
-                <h1>Hello</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor lacinia vehicula. Pellentesque ullamcorper laoreet urna, vel mattis lacus ultricies sed. Praesent id metus pellentesque, pretium dui nec, pulvinar arcu. Praesent accumsan felis sapien, et facilisis turpis scelerisque vitae. Morbi nec vestibulum libero. Donec euismod vehicula lectus. Donec malesuada, libero quis hendrerit vestibulum, nisi augue eleifend magna, et dapibus risus metus nec velit. Donec elementum congue nisi in tempor. In at ligula placerat arcu tristique lacinia interdum at lorem. Fusce ipsum risus, venenatis vel sagittis id, fringilla ac tortor. Aliquam eleifend est purus, vestibulum interdum dui consequat ac. Quisque efficitur nibh quis nunc egestas, eu laoreet lacus tincidunt. In eget odio at quam sagittis bibendum. Sed sed elit sem. Donec tincidunt et ipsum quis mattis.</p>
-          </div>
+        <div v-show="activePanel == 'Page Image'">
+          <h1>Hello</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor lacinia vehicula. Pellentesque ullamcorper laoreet urna, vel mattis lacus ultricies sed. Praesent id metus pellentesque, pretium dui nec, pulvinar arcu. Praesent accumsan felis sapien, et facilisis turpis scelerisque vitae. Morbi nec vestibulum libero. Donec euismod vehicula lectus. Donec malesuada, libero quis hendrerit vestibulum, nisi augue eleifend magna, et dapibus risus metus nec velit. Donec elementum congue nisi in tempor. In at ligula placerat arcu tristique lacinia interdum at lorem. Fusce ipsum risus, venenatis vel sagittis id, fringilla ac tortor. Aliquam eleifend est purus, vestibulum interdum dui consequat ac. Quisque efficitur nibh quis nunc egestas, eu laoreet lacus tincidunt. In eget odio at quam sagittis bibendum. Sed sed elit sem. Donec tincidunt et ipsum quis mattis.</p>
+        </div>
+        <div v-show="activePanel == 'Page Name'">
+          <h1>Jeez</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor lacinia vehicula. Pellentesque ullamcorper laoreet urna, vel mattis lacus ultricies sed. Praesent id metus pellentesque, pretium dui nec, pulvinar arcu. Praesent accumsan felis sapien, et facilisis turpis scelerisque vitae. Morbi nec vestibulum libero. Donec euismod vehicula lectus. Donec malesuada, libero quis hendrerit vestibulum, nisi augue eleifend magna, et dapibus risus metus nec velit. Donec elementum congue nisi in tempor. In at ligula placerat arcu tristique lacinia interdum at lorem. Fusce ipsum risus, venenatis vel sagittis id, fringilla ac tortor. Aliquam eleifend est purus, vestibulum interdum dui consequat ac. Quisque efficitur nibh quis nunc egestas, eu laoreet lacus tincidunt. In eget odio at quam sagittis bibendum. Sed sed elit sem. Donec tincidunt et ipsum quis mattis.</p>
+        </div>
+        <div v-show="activePanel == 'Page Price'">
+          <h1>Hello</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor lacinia vehicula. Pellentesque ullamcorper laoreet urna, vel mattis lacus ultricies sed. Praesent id metus pellentesque, pretium dui nec, pulvinar arcu. Praesent accumsan felis sapien, et facilisis turpis scelerisque vitae. Morbi nec vestibulum libero. Donec euismod vehicula lectus. Donec malesuada, libero quis hendrerit vestibulum, nisi augue eleifend magna, et dapibus risus metus nec velit. Donec elementum congue nisi in tempor. In at ligula placerat arcu tristique lacinia interdum at lorem. Fusce ipsum risus, venenatis vel sagittis id, fringilla ac tortor. Aliquam eleifend est purus, vestibulum interdum dui consequat ac. Quisque efficitur nibh quis nunc egestas, eu laoreet lacus tincidunt. In eget odio at quam sagittis bibendum. Sed sed elit sem. Donec tincidunt et ipsum quis mattis.</p>
+        </div>
+	      <div v-show="activePanel == 'Redirect Link'">
+	        <h1>Hello</h1>
+	        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor lacinia vehicula. Pellentesque ullamcorper laoreet urna, vel mattis lacus ultricies sed. Praesent id metus pellentesque, pretium dui nec, pulvinar arcu. Praesent accumsan felis sapien, et facilisis turpis scelerisque vitae. Morbi nec vestibulum libero. Donec euismod vehicula lectus. Donec malesuada, libero quis hendrerit vestibulum, nisi augue eleifend magna, et dapibus risus metus nec velit. Donec elementum congue nisi in tempor. In at ligula placerat arcu tristique lacinia interdum at lorem. Fusce ipsum risus, venenatis vel sagittis id, fringilla ac tortor. Aliquam eleifend est purus, vestibulum interdum dui consequat ac. Quisque efficitur nibh quis nunc egestas, eu laoreet lacus tincidunt. In eget odio at quam sagittis bibendum. Sed sed elit sem. Donec tincidunt et ipsum quis mattis.</p>
+	      </div>
+			  <div v-show="activePanel == 'Preview'">
+			    <h1>Hello</h1>
+			    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempor lacinia vehicula. Pellentesque ullamcorper laoreet urna, vel mattis lacus ultricies sed. Praesent id metus pellentesque, pretium dui nec, pulvinar arcu. Praesent accumsan felis sapien, et facilisis turpis scelerisque vitae. Morbi nec vestibulum libero. Donec euismod vehicula lectus. Donec malesuada, libero quis hendrerit vestibulum, nisi augue eleifend magna, et dapibus risus metus nec velit. Donec elementum congue nisi in tempor. In at ligula placerat arcu tristique lacinia interdum at lorem. Fusce ipsum risus, venenatis vel sagittis id, fringilla ac tortor. Aliquam eleifend est purus, vestibulum interdum dui consequat ac. Quisque efficitur nibh quis nunc egestas, eu laoreet lacus tincidunt. In eget odio at quam sagittis bibendum. Sed sed elit sem. Donec tincidunt et ipsum quis mattis.</p>
+			  </div>
       </div>
     </slideout-container>
   </div>
@@ -71,6 +72,7 @@ export default {
     return {
       activePanel: '',
       active: null,
+      initSpeeddial: null,
       index: ''
     }
   },
@@ -78,6 +80,9 @@ export default {
     start: function(item) {
       this.active = !item.active;
       this.activePanel = item; 
+    },
+    onClickChild: function(value){
+      this.initSpeeddial = !this.initSpeeddial
     }
   }
 }
